@@ -8,6 +8,7 @@
     <title>Pig Game</title>
   </head>
   <body>
+    <img class="info" src="info.svg" alt="info and rules" />
     <main>
       <section class="player player--0 player--active">
         <h2 class="name" id="name--0">Player 1</h2>
@@ -29,8 +30,17 @@
       <img src="dice-5.png" alt="Playing dice" class="dice" />
       <button class="btn btn--new">🔄 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
-      <button class="btn btn--hold">📥 Hold</button>
+      <button class="btn btn--hold">📥 Bank</button>
     </main>
+    <dialog>
+      <img class="close" src="close.svg" alt="close" />
+      <h2>Rules</h2>
+      <p>
+        First to 100 points win! If you roll 1, you lose the tally of your
+        current points. Save your points by banking them. When you bank, or roll
+        1, you lose your turn!
+      </p>
+    </dialog>
     <script src="script.js"></script>
   </body>
 </html>
