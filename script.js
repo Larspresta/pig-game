@@ -23,15 +23,30 @@ closeButton.addEventListener('click', () => {
   dialog.close();
 });
 
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
+//starting conditions and init
+let scores, currentScore, activePlayer, playing;
 
-let scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+const init = function () {
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
 
+  diceEl.classList.add('hidden');
+
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+};
+
+init();
+
+//switching player
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
@@ -85,16 +100,4 @@ btnHold.addEventListener('click', function () {
 });
 
 // reset the game
-btnNew.addEventListener('click', function () {
-  scores = [0, 0];
-  currentScore = 0;
-  activePlayer = 0;
-  playing = true;
-  score0El.textContent = 0;
-  score1El.textContent = 0;
-  current0El.textContent = 0;
-  current1El.textContent = 0;
-  player0El.classList.add('player--active');
-  player0El.classList.remove('player--winner');
-  player1El.classList.remove('player--winner');
-});
+btnNew.addEventListener('click', init);
